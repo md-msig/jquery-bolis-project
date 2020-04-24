@@ -6,7 +6,7 @@ var userdata = [
         status: "online",
         followers: "350k",
         pricing_options: "12 Hours @ $75",
-        post_time: 111,
+        post_time: "4pm (pst) March 20",
         frequency: "One-Time",
     },
     {
@@ -16,7 +16,7 @@ var userdata = [
         status: "online",
         followers: "350k",
         pricing_options: "24 Hours @ $125",
-        post_time: 222,
+        post_time: "7pm (pst) March 23",
         frequency: "One-Time",
     },
     {
@@ -26,7 +26,7 @@ var userdata = [
         status: "away",
         followers: "1.6M",
         pricing_options: "12 Hours @ $75",
-        post_time: 333,
+        post_time: "7pm (pst) March 23",
         frequency: "One-Time",
     },
     {
@@ -36,7 +36,7 @@ var userdata = [
         status: "online",
         followers: "2.3M",
         pricing_options: "12 Hours @ $75",
-        post_time: 444,
+        post_time: "7pm (pst) March 23",
         frequency: "Daily",
     },
     {
@@ -46,7 +46,7 @@ var userdata = [
         status: "away",
         followers: "1.6M",
         pricing_options: "12 Hours @ $75",
-        post_time: 555,
+        post_time: "7pm (pst) March 23",
         frequency: "Multiple",
     },
     {
@@ -56,7 +56,7 @@ var userdata = [
         status: "offline",
         followers: "1.6M",
         pricing_options: "12 Hours @ $75",
-        post_time: 666,
+        post_time: "4pm (pst) March 20",
         frequency: "Multiple",
     },
     {
@@ -66,7 +66,7 @@ var userdata = [
         status: "away",
         followers: "1.6M",
         pricing_options: "12 Hours @ $75",
-        post_time: 111,
+        post_time: "4pm (pst) March 20",
         frequency: "Multiple",
     },
     {
@@ -76,7 +76,7 @@ var userdata = [
         status: "away",
         followers: "1.6M",
         pricing_options: "12 Hours @ $75",
-        post_time: 111,
+        post_time: "4pm (pst) March 20",
         frequency: "One-Time",
     },
     {
@@ -86,7 +86,7 @@ var userdata = [
         status: "offline",
         followers: "1.9M",
         pricing_options: "12 Hours @ $75",
-        post_time: 111,
+        post_time: "4pm (pst) March 20",
         frequency: "Daily",
     },
     {
@@ -96,7 +96,7 @@ var userdata = [
         status: "away",
         followers: "2.8M",
         pricing_options: "12 Hours @ $75",
-        post_time: 111,
+        post_time: "4pm (pst) March 20",
         frequency: "One-Time",
     },
     {   
@@ -106,7 +106,7 @@ var userdata = [
         status: "away",
         followers: "5.6M",
         pricing_options: "12 Hours @ $75",
-        post_time: 111,
+        post_time: "4pm (pst) March 20",
         frequency: "Daily",
     },
     {
@@ -116,7 +116,7 @@ var userdata = [
         status: "online",
         followers: "250k",
         pricing_options: "12 Hours @ $75",
-        post_time: 111,
+        post_time: "4pm (pst) March 20",
         frequency: "One-Time",
     }
 ]

@@ -5,6 +5,11 @@
         font-size: 1rem;
         font-weight: 550;
     }
+    .nav-item.signout {
+        position: absolute;
+        left: 0rem;
+        bottom: 0rem;
+    }
     li.nav-item.active a.nav-link {
         background-image: linear-gradient(#cc224f, #ec4672, #f51a38);
         border-radius: 0rem 0.625rem 0.625rem 0rem;
@@ -94,6 +99,9 @@
         border-bottom: 0.5rem solid #df2759;
         height: 3.75rem;
         font-size: 0.8125rem;
+    }
+    .table thead th:hover {
+        cursor: pointer;
     }
     .modal-header {
         border-bottom: 0.5rem solid #df2759;
@@ -312,12 +320,18 @@
     }
 }
 
+
 @media (min-width: 576px) {
     body {
         font-family: "Montserrat" !important;
         letter-spacing: 0.02rem;
         font-size: 0.75rem;
         font-weight: 550;
+    }
+    .nav-item.signout {
+        position: absolute;
+        left: 0rem;
+        bottom: 0rem;
     }
     li.nav-item.active a.nav-link {
         background-image: linear-gradient(#cc224f, #ec4672, #f51a38);
@@ -402,6 +416,9 @@
         height: 2.8125rem;
         font-size: 0.6rem;
     }
+    .table thead th:hover {
+        cursor: pointer;
+    }
     .modal-header {
         border-bottom: 0.375rem solid #df2759;
     }
@@ -485,7 +502,7 @@
     }
     .edit {
         padding: 0;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
     }
@@ -527,7 +544,7 @@
     .bolis-text,
     .inf-text {
         padding: 0;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         height: 100%;
@@ -580,6 +597,11 @@
         letter-spacing: 0.02rem;
         font-size: 0.5rem;
         font-weight: 550;
+    }
+    .nav-item.signout {
+        position: absolute;
+        left: 0rem;
+        bottom: 0rem;
     }
     ul#accordionSidebar {
         display: none;
@@ -670,6 +692,9 @@
         height: 1.875rem;
         font-size: 0.4rem;
     }
+    .table thead th:hover {
+        cursor: pointer;
+    }
     .modal-header {
         border-bottom: 0.25rem solid #df2759;
     }
@@ -749,7 +774,7 @@
     }
     .edit {
         padding: 0;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
     }
@@ -791,7 +816,7 @@
     .bolis-text,
     .inf-text {
         padding: 0;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         height: 100%;
@@ -836,6 +861,11 @@
 }
 
 @media (min-width: 992px) {
+    .nav-item.signout {
+        position: absolute;
+        left: 0rem;
+        bottom: 0rem;
+    }
     body {
         font-family: "Montserrat" !important;
         letter-spacing: 0.02rem;
@@ -924,6 +954,9 @@
         border-bottom: 0.5rem solid #df2759;
         height: 3.75rem;
         font-size: 0.8125rem;
+    }
+    .table thead th:hover {
+        cursor: pointer;
     }
     .modal-header {
         border-bottom: 0.5rem solid #df2759;
@@ -1143,6 +1176,11 @@
 }
 
 @media (min-width: 1200px) {
+    .nav-item.signout {
+        position: absolute;
+        left: 0rem;
+        bottom: 0rem;
+    }
     body {
         font-family: "Montserrat" !important;
         letter-spacing: 0.02rem;
@@ -1156,6 +1194,7 @@
         line-height: 0.9;
         width: 99%;
     }
+
     .sidebar .nav-item .collapse .collapse-inner .collapse-item,
     .sidebar .nav-item .collapsing .collapse-inner .collapse-item {
         color: rgba(255, 255, 255, 0.8);
@@ -1231,6 +1270,9 @@
         border-bottom: 0.5rem solid #df2759;
         height: 3.75rem;
         font-size: 0.8125rem;
+    }
+    .table thead th:hover {
+        cursor: pointer;
     }
     .modal-header {
         border-bottom: 0.5rem solid #df2759;
