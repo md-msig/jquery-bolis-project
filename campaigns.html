@@ -13,7 +13,9 @@
 
     <!-- Custom fonts for this template -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -55,7 +57,8 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
                     <img src="assets/icons/records.png">
                     <span>Campaigns</span>
                 </a>
@@ -79,6 +82,11 @@
                     <span>Billing</span></a>
             </li>
 
+            <li class="nav-item signout">
+                <a class="nav-link" href="#">
+                    <img src="assets/icons/signout.png">
+                    <span>Logout</span></a>
+            </li>
         </ul>
         <!-- End of Sidebar -->
 
@@ -93,18 +101,20 @@
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+                        <i class="fa fa-bars"></i>
+                    </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="#">
                         <div class="input-group" class="search">
                             <div class="input-group-append">
-                                <button class="btn" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
+                                <button class="btn" type="button" onclick="info_search()">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
                             </div>
-                            <input type="text" class="form-control border-0 small search-box" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" id="search_text" class="form-control border-0 small search-box"
+                                placeholder="Search for...">
                             <i class="fa fa-chevron-down"></i>
                         </div>
                     </form>
@@ -123,12 +133,15 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle"
+                                    src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 <i class="fa fa-caret-down"></i>
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
                                 </a>
@@ -159,336 +172,20 @@
                             <thead>
                                 <tr>
                                     <th class="first" width="10%">Account</th>
-                                    <th width="10%">Status</th>
-                                    <th width="10%">Followers</th>
-                                    <th width="15%">Pricing Options</th>
-                                    <th width="17%">Post Time</th>
-                                    <th width="13%">Frequency</th>
-                                    <th style="min-width: 16.875rem;">Content</th>
+                                    <th id="status" class="sort">Status<i class="fa fa-caret-down"></i></th>
+                                    <th id="followers" class="sort">Followers<i class="fa fa-caret-down"></i></th>
+                                    <th id="pricing_options" class="sort">Pricing Options<i class="fa fa-caret-down"></i></th>
+                                    <th id="post_time" class="sort">Post Time<i class="fa fa-caret-down"></i></th>
+                                    <th id="frequency" class="sort">Frequency<i class="fa fa-caret-down"></i></th>
+                                    <th width="20%">Content</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                                <i class="fa fa-bars"></i>
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-online"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-online"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                                <i class="fa fa-bars"></i>
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-away"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                                <i class="fa fa-bars"></i>
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-online"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-offline"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-away"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-away"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-away"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-away"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <div class="row">
-                                            <div class="col-md-2 bar t-center">
-                                            </div>
-                                            <div class="col-md-3 t-center">
-                                            </div>
-                                            <div class="col-md-7 t-center"><span>Amber D</span></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="status-away"></div>
-                                    </td>
-                                    <td>350k</td>
-                                    <td>12 Hours @ $75</td>
-                                    <td>4pm (pst) March 20</td>
-                                    <td>One-Time</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="content-bolis float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="bolis-text"><span>Bolis</span></div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="content-inf float-left"><i class="fa fa-folder"></i></div>
-                                                <div class="inf-text"><span>Influencer</span></div>
-                                            </div>
-                                            <div class="col-md-2 edit"><img src="assets/icons/edit.png"></div>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tbody id="tbody">
                             </tbody>
                         </table>
                     </div>
                     <div class="row mt-4 text-center">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" id="pagination">
                             <ul class="paginator list-inline">
                                 <li class="list-inline-item back"><a href="#">BACK</a></li>
                                 <li class="list-inline-item middle">Step <a href="#"> 2 </a> of <a href="#"> 3 </a></li>
@@ -514,14 +211,15 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
@@ -532,11 +230,362 @@
         </div>
     </div>
 
+    <!-- Edit Modal -->
+    <div class="modal fade" id="userEditModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter name" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select class="form-control" id="status">
+                                <option value="online">Online</option>
+                                <option value="away">Away</option>
+                                <option value="offline">Offline</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="followers">Followers:</label>
+                            <input type="text" class="form-control" placeholder="Enter followers" id="followers">
+                        </div>
+                        <div class="form-group">
+                            <label for="pricing_options">Pricing Options:</label>
+                            <input type="text" class="form-control" placeholder="Enter pricing options" id="pricing_options">
+                        </div>
+                        <div class="form-group">
+                            <label for="post_time">Post Time:</label>
+                            <input type="text" class="form-control" placeholder="Enter post time" id="post_time">
+                        </div>
+                        <div class="form-group">
+                            <label for="frequency">Frequency:</label>
+                            <input type="text" class="form-control" placeholder="Enter frequency" id="frequency">
+                        </div>
+                        <input type="hidden" id="key">
+                        <button type="button" id="userSave" class="btn btn-primary float-right">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="assets/js/global.js"></script>
     <script>
+        page_length = 10;
+        page_num = 1;
+        search = '';
+        sort_item = '';
+        sort_dir = 1;
         
+        $(document).ready(function () {
+
+            tblDraw()
+
+            $('#userSave').click(function(){
+                id = $('#key').val()
+                save(id)
+            })
+
+            $('#search_text').keypress(function(e){
+                if(e.keyCode == 13) {
+                    info_search()
+                }
+            })
+
+            $('th.sort').click(function(){
+                sort_item = $(this).attr('id');
+                sort_dir *= -1;
+                i_class = ($(this).children("i").attr('class') == 'fa fa-caret-down') ? 'fa fa-caret-up' : 'fa fa-caret-down';
+                $(this).html(sort_item.charAt(0).toUpperCase() + sort_item.slice(1) + '<i class="'+ i_class +'"></i>');
+
+                tblDraw()
+            })
+
+            $('#sidebarToggleTop').click(function(){
+                $('#accordionSidebar').toggle()
+            })
+        })
+        
+        function tblDraw() {
+
+            if(search) {
+                filtered_data = []
+
+                for(var i = 0; i < userdata.length ; i ++) {
+                    var item = userdata[i];
+                    if(item.name.includes(search) || item.status.includes(search) || item.followers.includes(search) || item.pricing_options.includes(search) || item.post_time.includes(search) || item.frequency.includes(search)){
+                        filtered_data.push(item)
+                    }
+                }
+                if(sort_item) {
+                    filtered_data = data_sort(filtered_data, sort_item, sort_dir)
+                }
+                length = filtered_data.length;
+                pages = Math.floor(length/page_length) + 1
+                var is_num = page_length * (page_num-1)
+                var ie_num = (page_length * page_num <= length) ? page_length * page_num : length
+
+                var html = ''
+                for (var i = is_num ; i < ie_num; i++) {
+                    var item = filtered_data[i];
+                    html += '<tr>' +
+                        '<td class="first">' +
+                        '<div class="row">' +
+                        '<div class="col-md-2 bar t-center">' +
+                        '<i class="fa fa-bars"></i>' +
+                        '</div>' +
+                        '<div class="col-md-3 t-center">' +
+                        '<img class="img-profile rounded-circle" src="assets/images/' + item.photo + '">' +
+                        '</div>' +
+                        '<div class="col-md-7 t-center"><span>' + item.name + '</span></div>' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="status-' + item.status + '"></div>' +
+                        '</td>' +
+                        '<td>' + item.followers + '</td>' +
+                        '<td>' + item.pricing_options + '</td>' +
+                        '<td>' + item.post_time + '</td>' +
+                        '<td>' + item.frequency + '</td>' +
+                        '<td>' +
+                        '<div class="row">' +
+                        '<div class="col-md-5">' +
+                        '<div class="content-bolis float-left"><i class="fa fa-folder"></i></div>' +
+                        '<div class="bolis-text"><span>Bolis</span></div>' +
+                        '</div>' +
+                        '<div class="col-md-5">' +
+                        '<div class="content-inf float-left"><i class="fa fa-folder"></i></div>' +
+                        '<div class="inf-text"><span>Influencer</span></div>' +
+                        '</div>' +
+                        '<div class="col-md-2 edit" onclick="showEditModal('+ i +')"><img src="assets/icons/edit.png"></div>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>'
+                }
+                
+                $('#tbody').html(html)
+
+                var pagination = '';
+                pagination += 
+                '<ul class="paginator list-inline">' + 
+                    '<li class="list-inline-item back"><a href="javascript:page_back()">BACK</a></li>' + 
+                    '<li class="list-inline-item middle">Step <a href="#"> '+ page_num +' </a> of <a href="#"> '+ pages +' </a></li>' + 
+                    '<li class="list-inline-item next"><a href="javascript:page_next()">NEXT STEP</a></li>' + 
+                '</ul>'
+
+                $('#pagination').html(pagination)
+            } else {
+                if(sort_item) {
+                    userdata = data_sort(userdata, sort_item, sort_dir)
+                }
+                length = userdata.length;
+                pages = Math.floor(length/page_length) + 1
+                var is_num = page_length * (page_num-1)
+                var ie_num = (page_length * page_num <= length) ? page_length * page_num : length
+
+                var html = ''
+                for (var i = is_num ; i < ie_num; i++) {
+                    var item = userdata[i];
+                    html += '<tr>' +
+                        '<td class="first">' +
+                        '<div class="row">' +
+                        '<div class="col-md-2 bar t-center">' +
+                        '<i class="fa fa-bars"></i>' +
+                        '</div>' +
+                        '<div class="col-md-3 t-center">' +
+                        '<img class="img-profile rounded-circle" src="assets/images/' + item.photo + '">' +
+                        '</div>' +
+                        '<div class="col-md-7 t-center"><span>' + item.name + '</span></div>' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="status-' + item.status + '"></div>' +
+                        '</td>' +
+                        '<td>' + item.followers + '</td>' +
+                        '<td>' + item.pricing_options + '</td>' +
+                        '<td>' + item.post_time + '</td>' +
+                        '<td>' + item.frequency + '</td>' +
+                        '<td>' +
+                        '<div class="row">' +
+                        '<div class="col-md-5">' +
+                        '<div class="content-bolis float-left"><i class="fa fa-folder"></i></div>' +
+                        '<div class="bolis-text"><span>Bolis</span></div>' +
+                        '</div>' +
+                        '<div class="col-md-5">' +
+                        '<div class="content-inf float-left"><i class="fa fa-folder"></i></div>' +
+                        '<div class="inf-text"><span>Influencer</span></div>' +
+                        '</div>' +
+                        '<div class="col-md-2 edit" onclick="showEditModal('+ i +')"><img src="assets/icons/edit.png"></div>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>'
+                }
+
+                $('#tbody').html(html)
+
+                var pagination = '';
+                pagination += 
+                '<ul class="paginator list-inline">' + 
+                    '<li class="list-inline-item back"><a href="javascript:page_back()">BACK</a></li>' + 
+                    '<li class="list-inline-item middle">Step <a href="#"> '+ page_num +' </a> of <a href="#"> '+ pages +' </a></li>' + 
+                    '<li class="list-inline-item next"><a href="javascript:page_next()">NEXT STEP</a></li>' + 
+                '</ul>'
+
+                $('#pagination').html(pagination)
+            }
+        }
+
+        function showEditModal(id) {
+            var info = userdata[id]
+            $('#key').val(id)
+            $('#name').val(info.name)
+            $('#status').val(info.status)
+            $('#followers').val(info.followers)
+            $('#pricing_options').val(info.pricing_options)
+            $('#post_time').val(info.post_time)
+            $('#frequency').val(info.frequency)
+
+            $('#userEditModal').modal()
+        }
+
+        function save(id) {
+            userdata[id].name = $('#name').val()
+            userdata[id].status = $('#status').val()
+            userdata[id].followers = $('#followers').val()
+            userdata[id].pricing_options = $('#pricing_options').val()
+            userdata[id].post_time = $('#post_time').val()
+            userdata[id].frequency = $('#frequency').val()
+
+            tblDraw()
+
+            $('#userEditModal').modal('hide')
+        }
+
+        function page_back() {
+            page_num = (page_num - 1 > 0) ? page_num - 1 : 1
+            tblDraw()
+        }
+
+        function page_next() {
+            page_num = (page_num + 1 < pages) ? page_num + 1 : pages
+            tblDraw()
+        }
+
+        function info_search() {
+            search = $('#search_text').val()
+            tblDraw()
+        }
+
+        function compare_status(a, b) {
+            value1 = a.status.toUpperCase();
+            value2 = b.status.toUpperCase();
+
+            let comparison = 0;
+            if (value1 > value2) {
+                comparison = 1;
+            } else if (value1 < value2) {
+                comparison = -1;
+            }
+            if(sort_dir == -1) {
+                return comparison * -1;
+            }
+            return comparison;
+        }
+
+        function compare_followers(a, b) {
+            value1 = a.followers.toUpperCase();
+            value2 = b.followers.toUpperCase();
+
+            let comparison = 0;
+            if (value1 > value2) {
+                comparison = 1;
+            } else if (value1 < value2) {
+                comparison = -1;
+            }
+            if(sort_dir == -1) {
+                return comparison * -1;
+            }
+            return comparison;
+        }
+
+        function compare_pricing_options(a, b) {
+            value1 = a.pricing_options.toUpperCase();
+            value2 = b.pricing_options.toUpperCase();
+
+            let comparison = 0;
+            if (value1 > value2) {
+                comparison = 1;
+            } else if (value1 < value2) {
+                comparison = -1;
+            }
+            if(sort_dir == -1) {
+                return comparison * -1;
+            }
+            return comparison;
+        }
+
+        function compare_post_time(a, b) {
+            value1 = a.post_time.toUpperCase();
+            value2 = b.post_time.toUpperCase();
+
+            let comparison = 0;
+            if (value1 > value2) {
+                comparison = 1;
+            } else if (value1 < value2) {
+                comparison = -1;
+            }
+            if(sort_dir == -1) {
+                return comparison * -1;
+            }
+            return comparison;
+        }
+
+        function compare_frequency(a, b) {
+            value1 = a.frequency.toUpperCase();
+            value2 = b.frequency.toUpperCase();
+
+            let comparison = 0;
+            if (value1 > value2) {
+                comparison = 1;
+            } else if (value1 < value2) {
+                comparison = -1;
+            }
+            if(sort_dir == -1) {
+                return comparison * -1;
+            }
+            return comparison;
+        }
+
+        function data_sort(data, sort_item, sort_dir){
+            if(sort_item == "status") {
+                data = data.sort(compare_status)
+                return data
+            } else if(sort_item == "followers") {
+                data = data.sort(compare_followers)
+                return data
+            } else if(sort_item == "pricing_options") {
+                data = data.sort(compare_pricing_options)
+                return data
+            } else if(sort_item == "post_time") {
+                data = data.sort(compare_post_time)
+                return data
+            } else {
+                data = data.sort(compare_frequency)
+                return data
+            }
+        }
     </script>
 </body>
 
