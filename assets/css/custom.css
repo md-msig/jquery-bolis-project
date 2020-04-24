@@ -12,6 +12,13 @@
         line-height: 0.9;
         width: 99%;
     }
+    #userEditModal .modal-content {
+        border-radius: 0.9375rem;
+    }
+
+    .modal {
+        color : #252525;
+    }
     .sidebar .nav-item .collapse .collapse-inner .collapse-item,
     .sidebar .nav-item .collapsing .collapse-inner .collapse-item {
         color: rgba(255, 255, 255, 0.8);
@@ -87,6 +94,9 @@
         border-bottom: 0.5rem solid #df2759;
         height: 3.75rem;
         font-size: 0.8125rem;
+    }
+    .modal-header {
+        border-bottom: 0.5rem solid #df2759;
     }
     td.photo,
     td.name {
@@ -224,6 +234,9 @@
         letter-spacing: 0.05rem;
         text-transform: initial;
         z-index: 1;
+    }
+    .topbar {
+        height: 6rem;
     }
     .bolis-text,
     .inf-text {
@@ -389,6 +402,9 @@
         height: 2.8125rem;
         font-size: 0.6rem;
     }
+    .modal-header {
+        border-bottom: 0.375rem solid #df2759;
+    }
     td.photo,
     td.name {
         width: 50%;
@@ -505,6 +521,9 @@
         text-transform: initial;
         z-index: 1;
     }
+    .topbar {
+        height: 4.5rem;
+    }
     .bolis-text,
     .inf-text {
         padding: 0;
@@ -549,6 +568,9 @@
     }
     .sidebar-brand-icon img {
         width: 2.625rem;
+    }
+    td .edit:hover {
+        cursor: pointer;
     }
 }
 
@@ -647,6 +669,9 @@
         border-bottom: 0.25rem solid #df2759;
         height: 1.875rem;
         font-size: 0.4rem;
+    }
+    .modal-header {
+        border-bottom: 0.25rem solid #df2759;
     }
     th.first {
         font-size: 0.6875rem !important;
@@ -759,6 +784,9 @@
         letter-spacing: 0.05rem;
         text-transform: initial;
         z-index: 1;
+    }
+    .topbar {
+        height: 3rem;
     }
     .bolis-text,
     .inf-text {
@@ -897,6 +925,9 @@
         height: 3.75rem;
         font-size: 0.8125rem;
     }
+    .modal-header {
+        border-bottom: 0.5rem solid #df2759;
+    }
     td.photo,
     td.name {
         width: 50%;
@@ -1033,6 +1064,9 @@
         letter-spacing: 0.05rem;
         text-transform: initial;
         z-index: 1;
+    }
+    .topbar {
+        height: 6rem;
     }
     .bolis-text,
     .inf-text {
@@ -1198,6 +1232,9 @@
         height: 3.75rem;
         font-size: 0.8125rem;
     }
+    .modal-header {
+        border-bottom: 0.5rem solid #df2759;
+    }
     td.photo,
     td.name {
         width: 50%;
@@ -1334,6 +1371,9 @@
         letter-spacing: 0.05rem;
         text-transform: initial;
         z-index: 1;
+    }
+    .topbar {
+        height: 6rem;
     }
     .bolis-text,
     .inf-text {
