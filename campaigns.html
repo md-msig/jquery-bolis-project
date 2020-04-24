@@ -105,8 +105,8 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="#">
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                        action="#">
                         <div class="input-group" class="search">
                             <div class="input-group-append">
                                 <button class="btn" type="button" onclick="info_search()">
@@ -174,7 +174,8 @@
                                     <th class="first" width="10%">Account</th>
                                     <th id="status" class="sort">Status<i class="fa fa-caret-down"></i></th>
                                     <th id="followers" class="sort">Followers<i class="fa fa-caret-down"></i></th>
-                                    <th id="pricing_options" class="sort">Pricing Options<i class="fa fa-caret-down"></i></th>
+                                    <th id="pricing_options" class="sort">Pricing Options<i
+                                            class="fa fa-caret-down"></i></th>
                                     <th id="post_time" class="sort">Post Time<i class="fa fa-caret-down"></i></th>
                                     <th id="frequency" class="sort">Frequency<i class="fa fa-caret-down"></i></th>
                                     <th width="20%">Content</th>
@@ -262,7 +263,8 @@
                         </div>
                         <div class="form-group">
                             <label for="pricing_options">Pricing Options:</label>
-                            <input type="text" class="form-control" placeholder="Enter pricing options" id="pricing_options">
+                            <input type="text" class="form-control" placeholder="Enter pricing options"
+                                id="pricing_options">
                         </div>
                         <div class="form-group">
                             <label for="post_time">Post Time:</label>
@@ -288,57 +290,57 @@
         search = '';
         sort_item = '';
         sort_dir = 1;
-        
+
         $(document).ready(function () {
 
             tblDraw()
 
-            $('#userSave').click(function(){
+            $('#userSave').click(function () {
                 id = $('#key').val()
                 save(id)
             })
 
-            $('#search_text').keypress(function(e){
-                if(e.keyCode == 13) {
+            $('#search_text').keypress(function (e) {
+                if (e.keyCode == 13) {
                     info_search()
                 }
             })
 
-            $('th.sort').click(function(){
+            $('th.sort').click(function () {
                 sort_item = $(this).attr('id');
                 sort_dir *= -1;
                 i_class = ($(this).children("i").attr('class') == 'fa fa-caret-down') ? 'fa fa-caret-up' : 'fa fa-caret-down';
-                $(this).html(sort_item.charAt(0).toUpperCase() + sort_item.slice(1) + '<i class="'+ i_class +'"></i>');
+                $(this).html(sort_item.charAt(0).toUpperCase() + sort_item.slice(1) + '<i class="' + i_class + '"></i>');
 
                 tblDraw()
             })
 
-            $('#sidebarToggleTop').click(function(){
+            $('#sidebarToggleTop').click(function () {
                 $('#accordionSidebar').toggle()
             })
         })
-        
+
         function tblDraw() {
 
-            if(search) {
+            if (search) {
                 filtered_data = []
 
-                for(var i = 0; i < userdata.length ; i ++) {
+                for (var i = 0; i < userdata.length; i++) {
                     var item = userdata[i];
-                    if(item.name.includes(search) || item.status.includes(search) || item.followers.includes(search) || item.pricing_options.includes(search) || item.post_time.includes(search) || item.frequency.includes(search)){
+                    if (item.name.includes(search) || item.status.includes(search) || item.followers.includes(search) || item.pricing_options.includes(search) || item.post_time.includes(search) || item.frequency.includes(search)) {
                         filtered_data.push(item)
                     }
                 }
-                if(sort_item) {
+                if (sort_item) {
                     filtered_data = data_sort(filtered_data, sort_item, sort_dir)
                 }
                 length = filtered_data.length;
-                pages = Math.floor(length/page_length) + 1
-                var is_num = page_length * (page_num-1)
+                pages = Math.floor(length / page_length) + 1
+                var is_num = page_length * (page_num - 1)
                 var ie_num = (page_length * page_num <= length) ? page_length * page_num : length
 
                 var html = ''
-                for (var i = is_num ; i < ie_num; i++) {
+                for (var i = is_num; i < ie_num; i++) {
                     var item = filtered_data[i];
                     html += '<tr>' +
                         '<td class="first">' +
@@ -369,35 +371,40 @@
                         '<div class="content-inf float-left"><i class="fa fa-folder"></i></div>' +
                         '<div class="inf-text"><span>Influencer</span></div>' +
                         '</div>' +
-                        '<div class="col-md-2 edit" onclick="showEditModal('+ i +')"><img src="assets/icons/edit.png"></div>' +
+                        '<div class="col-md-2 edit" onclick="showEditModal(' + i + ')"><img src="assets/icons/edit.png"></div>' +
                         '</div>' +
                         '</td>' +
                         '</tr>'
                 }
-                
+
                 $('#tbody').html(html)
 
                 var pagination = '';
-                pagination += 
-                '<ul class="paginator list-inline">' + 
-                    '<li class="list-inline-item back"><a href="javascript:page_back()">BACK</a></li>' + 
-                    '<li class="list-inline-item middle">Step <a href="#"> '+ page_num +' </a> of <a href="#"> '+ pages +' </a></li>' + 
-                    '<li class="list-inline-item next"><a href="javascript:page_next()">NEXT STEP</a></li>' + 
-                '</ul>'
+                pagination +=
+                    '<ul class="paginator list-inline">' +
+                    '<li class="list-inline-item back"><a href="javascript:page_back()">BACK</a></li>' +
+                    '<li class="list-inline-item middle">Step <a href="#"> ' + page_num + ' </a> of <a href="#"> ' + pages + ' </a></li>' +
+                    '<li class="list-inline-item next"><a href="javascript:page_next()">NEXT STEP</a></li>' +
+                    '</ul>'
 
                 $('#pagination').html(pagination)
             } else {
-                if(sort_item) {
+                if (sort_item) {
                     userdata = data_sort(userdata, sort_item, sort_dir)
                 }
                 length = userdata.length;
-                pages = Math.floor(length/page_length) + 1
-                var is_num = page_length * (page_num-1)
+                pages = Math.floor(length / page_length) + 1
+                var is_num = page_length * (page_num - 1)
                 var ie_num = (page_length * page_num <= length) ? page_length * page_num : length
 
+                
                 var html = ''
-                for (var i = is_num ; i < ie_num; i++) {
+                for (var i = is_num; i < ie_num; i++) {
                     var item = userdata[i];
+                    var eye = ''
+                    if(item.frequency == "Multiple") {
+                        eye += '<img src="assets/icons/eye.png" style="width:1.5rem;">'
+                    }
                     html += '<tr>' +
                         '<td class="first">' +
                         '<div class="row">' +
@@ -416,7 +423,7 @@
                         '<td>' + item.followers + '</td>' +
                         '<td>' + item.pricing_options + '</td>' +
                         '<td>' + item.post_time + '</td>' +
-                        '<td>' + item.frequency + '</td>' +
+                        '<td>' + item.frequency + eye + '</td>' +
                         '<td>' +
                         '<div class="row">' +
                         '<div class="col-md-5">' +
@@ -427,7 +434,7 @@
                         '<div class="content-inf float-left"><i class="fa fa-folder"></i></div>' +
                         '<div class="inf-text"><span>Influencer</span></div>' +
                         '</div>' +
-                        '<div class="col-md-2 edit" onclick="showEditModal('+ i +')"><img src="assets/icons/edit.png"></div>' +
+                        '<div class="col-md-2 edit" onclick="showEditModal(' + i + ')"><img src="assets/icons/edit.png"></div>' +
                         '</div>' +
                         '</td>' +
                         '</tr>'
@@ -436,12 +443,12 @@
                 $('#tbody').html(html)
 
                 var pagination = '';
-                pagination += 
-                '<ul class="paginator list-inline">' + 
-                    '<li class="list-inline-item back"><a href="javascript:page_back()">BACK</a></li>' + 
-                    '<li class="list-inline-item middle">Step <a href="#"> '+ page_num +' </a> of <a href="#"> '+ pages +' </a></li>' + 
-                    '<li class="list-inline-item next"><a href="javascript:page_next()">NEXT STEP</a></li>' + 
-                '</ul>'
+                pagination +=
+                    '<ul class="paginator list-inline">' +
+                    '<li class="list-inline-item back"><a href="javascript:page_back()">BACK</a></li>' +
+                    '<li class="list-inline-item middle">Step <a href="#"> ' + page_num + ' </a> of <a href="#"> ' + pages + ' </a></li>' +
+                    '<li class="list-inline-item next"><a href="javascript:page_next()">NEXT STEP</a></li>' +
+                    '</ul>'
 
                 $('#pagination').html(pagination)
             }
@@ -498,7 +505,7 @@
             } else if (value1 < value2) {
                 comparison = -1;
             }
-            if(sort_dir == -1) {
+            if (sort_dir == -1) {
                 return comparison * -1;
             }
             return comparison;
@@ -514,7 +521,7 @@
             } else if (value1 < value2) {
                 comparison = -1;
             }
-            if(sort_dir == -1) {
+            if (sort_dir == -1) {
                 return comparison * -1;
             }
             return comparison;
@@ -530,7 +537,7 @@
             } else if (value1 < value2) {
                 comparison = -1;
             }
-            if(sort_dir == -1) {
+            if (sort_dir == -1) {
                 return comparison * -1;
             }
             return comparison;
@@ -546,7 +553,7 @@
             } else if (value1 < value2) {
                 comparison = -1;
             }
-            if(sort_dir == -1) {
+            if (sort_dir == -1) {
                 return comparison * -1;
             }
             return comparison;
@@ -562,23 +569,23 @@
             } else if (value1 < value2) {
                 comparison = -1;
             }
-            if(sort_dir == -1) {
+            if (sort_dir == -1) {
                 return comparison * -1;
             }
             return comparison;
         }
 
-        function data_sort(data, sort_item, sort_dir){
-            if(sort_item == "status") {
+        function data_sort(data, sort_item, sort_dir) {
+            if (sort_item == "status") {
                 data = data.sort(compare_status)
                 return data
-            } else if(sort_item == "followers") {
+            } else if (sort_item == "followers") {
                 data = data.sort(compare_followers)
                 return data
-            } else if(sort_item == "pricing_options") {
+            } else if (sort_item == "pricing_options") {
                 data = data.sort(compare_pricing_options)
                 return data
-            } else if(sort_item == "post_time") {
+            } else if (sort_item == "post_time") {
                 data = data.sort(compare_post_time)
                 return data
             } else {
