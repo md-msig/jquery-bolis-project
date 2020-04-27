@@ -105,20 +105,16 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-                        action="#">
-                        <div class="input-group" class="search">
-                            <div class="input-group-append">
-                                <button class="btn" type="button" onclick="info_search()">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                            <input type="text" id="search_text" class="form-control border-0 small search-box"
-                                placeholder="Search for...">
-                            <i class="fa fa-chevron-down"></i>
+                    <div class="input-group col-lg-6 col-md-6 col-sm-12 col-xs-12" class="search">
+                        <div class="input-group-append">
+                            <button class="btn" type="button" onclick="info_search()">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
                         </div>
-                    </form>
-
+                        <input type="text" id="search_text" class="form-control border-0 small search-box"
+                            placeholder="Search for...">
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -291,6 +287,8 @@
         sort_item = '';
         sort_dir = 1;
 
+        filtered_data = [];
+
         $(document).ready(function () {
 
             tblDraw()
@@ -323,8 +321,7 @@
         function tblDraw() {
 
             if (search) {
-                filtered_data = []
-
+                filtered_data = [];
                 for (var i = 0; i < userdata.length; i++) {
                     var item = userdata[i];
                     if (item.name.includes(search) || item.status.includes(search) || item.followers.includes(search) || item.pricing_options.includes(search) || item.post_time.includes(search) || item.frequency.includes(search)) {
@@ -338,10 +335,14 @@
                 pages = Math.floor(length / page_length) + 1
                 var is_num = page_length * (page_num - 1)
                 var ie_num = (page_length * page_num <= length) ? page_length * page_num : length
-
+                
                 var html = ''
                 for (var i = is_num; i < ie_num; i++) {
                     var item = filtered_data[i];
+                    var eye = ''
+                    if(item.frequency == "Multiple") {
+                        eye += '<img id="eye" src="assets/icons/eye.png">'
+                    }
                     html += '<tr>' +
                         '<td class="first">' +
                         '<div class="row">' +
@@ -360,7 +361,7 @@
                         '<td>' + item.followers + '</td>' +
                         '<td>' + item.pricing_options + '</td>' +
                         '<td>' + item.post_time + '</td>' +
-                        '<td>' + item.frequency + '</td>' +
+                        '<td>' + item.frequency + eye + '</td>' +
                         '<td>' +
                         '<div class="row">' +
                         '<div class="col-md-5">' +
@@ -389,10 +390,11 @@
 
                 $('#pagination').html(pagination)
             } else {
+                filtered_data = userdata;
                 if (sort_item) {
-                    userdata = data_sort(userdata, sort_item, sort_dir)
+                    filtered_data = data_sort(filtered_data, sort_item, sort_dir)
                 }
-                length = userdata.length;
+                length = filtered_data.length;
                 pages = Math.floor(length / page_length) + 1
                 var is_num = page_length * (page_num - 1)
                 var ie_num = (page_length * page_num <= length) ? page_length * page_num : length
@@ -400,10 +402,10 @@
                 
                 var html = ''
                 for (var i = is_num; i < ie_num; i++) {
-                    var item = userdata[i];
+                    var item = filtered_data[i];
                     var eye = ''
                     if(item.frequency == "Multiple") {
-                        eye += '<img src="assets/icons/eye.png" style="width:1.5rem;">'
+                        eye += '<img id="eye" src="assets/icons/eye.png">'
                     }
                     html += '<tr>' +
                         '<td class="first">' +
@@ -455,25 +457,28 @@
         }
 
         function showEditModal(id) {
-            var info = userdata[id]
-            $('#key').val(id)
-            $('#name').val(info.name)
-            $('#status').val(info.status)
-            $('#followers').val(info.followers)
-            $('#pricing_options').val(info.pricing_options)
-            $('#post_time').val(info.post_time)
-            $('#frequency').val(info.frequency)
+            var info = filtered_data[id]
+            var selector = "#userEditModal ";
+            console.log(info);
+            $(selector + '#key').val(id)
+            $(selector + '#name').val(info.name)
+            $(selector + '#status').val(info.status)
+            $(selector + '#followers').val(info.followers)
+            $(selector + '#pricing_options').val(info.pricing_options)
+            $(selector + '#post_time').val(info.post_time)
+            $(selector + '#frequency').val(info.frequency)
 
             $('#userEditModal').modal()
         }
 
         function save(id) {
-            userdata[id].name = $('#name').val()
-            userdata[id].status = $('#status').val()
-            userdata[id].followers = $('#followers').val()
-            userdata[id].pricing_options = $('#pricing_options').val()
-            userdata[id].post_time = $('#post_time').val()
-            userdata[id].frequency = $('#frequency').val()
+            var selector = "#userEditModal ";
+            userdata[id].name = $(selector + '#name').val()
+            userdata[id].status = $(selector + '#status').val()
+            userdata[id].followers = $(selector + '#followers').val()
+            userdata[id].pricing_options = $(selector + '#pricing_options').val()
+            userdata[id].post_time = $(selector + '#post_time').val()
+            userdata[id].frequency = $(selector + '#frequency').val()
 
             tblDraw()
 

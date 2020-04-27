@@ -10,6 +10,15 @@
         left: 0rem;
         bottom: 0rem;
     }
+    #eye {
+        margin-left: 0.1875rem;
+        width: 1.25rem;
+    }
+    #search_text:focus {
+        color: #6e707e;
+        background-color: #fafafa;
+        box-shadow: 0 0 0 0rem rgba(78, 115, 223, 0.25);
+    }
     li.nav-item.active a.nav-link {
         background-image: linear-gradient(#cc224f, #ec4672, #f51a38);
         border-radius: 0rem 0.625rem 0.625rem 0rem;
@@ -333,6 +342,15 @@
         left: 0rem;
         bottom: 0rem;
     }
+    #eye {
+        margin-left: 0.12rem;
+        width: 0.9rem;
+    }
+    #search_text:focus {
+        color: #6e707e;
+        background-color: #fafafa;
+        box-shadow: 0 0 0 0rem rgba(78, 115, 223, 0.25);
+    }
     li.nav-item.active a.nav-link {
         background-image: linear-gradient(#cc224f, #ec4672, #f51a38);
         border-radius: 0rem 0.625rem 0.625rem 0rem;
@@ -603,6 +621,15 @@
         left: 0rem;
         bottom: 0rem;
     }
+    #eye {
+        margin-left: 0.09rem;
+        width: 0.625rem;
+    }
+    #search_text:focus {
+        color: #6e707e;
+        background-color: #fafafa;
+        box-shadow: 0 0 0 0rem rgba(78, 115, 223, 0.25);
+    }
     ul#accordionSidebar {
         display: none;
     }
@@ -871,6 +898,15 @@
         letter-spacing: 0.02rem;
         font-size: 1rem;
         font-weight: 550;
+    }
+    #eye {
+        margin-left: 0.1875rem;
+        width: 1.25rem;
+    }
+    #search_text:focus {
+        color: #6e707e;
+        background-color: #fafafa;
+        box-shadow: 0 0 0 0rem rgba(78, 115, 223, 0.25);
     }
     li.nav-item.active a.nav-link {
         background-image: linear-gradient(#cc224f, #ec4672, #f51a38);
@@ -1186,6 +1222,15 @@
         letter-spacing: 0.02rem;
         font-size: 1rem;
         font-weight: 550;
+    }
+    #eye {
+        margin-left: 0.1875rem;
+        width: 1.25rem;
+    }
+    #search_text:focus {
+        color: #6e707e;
+        background-color: #fafafa;
+        box-shadow: 0 0 0 0rem rgba(78, 115, 223, 0.25);
     }
     li.nav-item.active a.nav-link {
         background-image: linear-gradient(#cc224f, #ec4672, #f51a38);
