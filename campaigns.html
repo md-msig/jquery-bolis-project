@@ -264,13 +264,15 @@
                         </div>
                         <div class="form-group">
                             <label for="post_time">Post Time:</label>
-                            <input type="text" class="form-control" placeholder="Enter post time" id="post_time">
+                            <!-- <input type="text" class="form-control" placeholder="Enter post time" id="post_time"> -->
+                            <input type="date" placeholder="Enter post time" id="post_time" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="frequency">Frequency:</label>
                             <input type="text" class="form-control" placeholder="Enter frequency" id="frequency">
                         </div>
                         <input type="hidden" id="key">
+                        <input type="hidden" id="is_num">
                         <button type="button" id="userSave" class="btn btn-primary float-right">Save</button>
                     </form>
                 </div>
@@ -288,6 +290,7 @@
         sort_dir = 1;
 
         filtered_data = [];
+        sorted_data = [];
 
         $(document).ready(function () {
 
@@ -322,23 +325,32 @@
 
             if (search) {
                 filtered_data = [];
+                sorted_data = [];
                 for (var i = 0; i < userdata.length; i++) {
                     var item = userdata[i];
                     if (item.name.includes(search) || item.status.includes(search) || item.followers.includes(search) || item.pricing_options.includes(search) || item.post_time.includes(search) || item.frequency.includes(search)) {
                         filtered_data.push(item)
                     }
                 }
-                if (sort_item) {
-                    filtered_data = data_sort(filtered_data, sort_item, sort_dir)
-                }
+                
                 length = filtered_data.length;
                 pages = Math.floor(length / page_length) + 1
                 var is_num = page_length * (page_num - 1)
                 var ie_num = (page_length * page_num <= length) ? page_length * page_num : length
+
+                var cnt = 0
+                for (var i = is_num; i < ie_num; i++) {
+                    sorted_data[cnt] = filtered_data[i];
+                    cnt ++
+                }
+
+                if (sort_item) {
+                    sorted_data = data_sort(sorted_data, sort_item, sort_dir)
+                }
                 
                 var html = ''
-                for (var i = is_num; i < ie_num; i++) {
-                    var item = filtered_data[i];
+                for (var i = 0; i < sorted_data.length; i++) {
+                    var item = sorted_data[i];
                     var eye = ''
                     if(item.frequency == "Multiple") {
                         eye += '<img id="eye" src="assets/icons/eye.png">'
@@ -391,18 +403,29 @@
                 $('#pagination').html(pagination)
             } else {
                 filtered_data = userdata;
-                if (sort_item) {
-                    filtered_data = data_sort(filtered_data, sort_item, sort_dir)
-                }
+                sorted_data = [];
+                // if (sort_item) {
+                //     filtered_data = data_sort(filtered_data, sort_item, sort_dir)
+                // }
                 length = filtered_data.length;
                 pages = Math.floor(length / page_length) + 1
                 var is_num = page_length * (page_num - 1)
                 var ie_num = (page_length * page_num <= length) ? page_length * page_num : length
 
+                var cnt = 0
+                for (var i = is_num; i < ie_num; i++) {
+                    sorted_data[cnt] = filtered_data[i];
+                    cnt ++
+                }
+
+                if (sort_item) {
+                    sorted_data = data_sort(sorted_data, sort_item, sort_dir)
+                }
+
                 
                 var html = ''
-                for (var i = is_num; i < ie_num; i++) {
-                    var item = filtered_data[i];
+                for (var i = 0; i < sorted_data.length; i++) {
+                    var item = sorted_data[i];
                     var eye = ''
                     if(item.frequency == "Multiple") {
                         eye += '<img id="eye" src="assets/icons/eye.png">'
@@ -436,7 +459,7 @@
                         '<div class="content-inf float-left"><i class="fa fa-folder"></i></div>' +
                         '<div class="inf-text"><span>Influencer</span></div>' +
                         '</div>' +
-                        '<div class="col-md-2 edit" onclick="showEditModal(' + i + ')"><img src="assets/icons/edit.png"></div>' +
+                        '<div class="col-md-2 edit" onclick="showEditModal(' + i + ', '+ is_num +')"><img src="assets/icons/edit.png"></div>' +
                         '</div>' +
                         '</td>' +
                         '</tr>'
@@ -456,11 +479,11 @@
             }
         }
 
-        function showEditModal(id) {
-            var info = filtered_data[id]
+        function showEditModal(id, s_num) {
+            var info = sorted_data[id]
             var selector = "#userEditModal ";
-            console.log(info);
             $(selector + '#key').val(id)
+            $(selector + '#is_num').val(s_num)
             $(selector + '#name').val(info.name)
             $(selector + '#status').val(info.status)
             $(selector + '#followers').val(info.followers)
@@ -473,6 +496,8 @@
 
         function save(id) {
             var selector = "#userEditModal ";
+            var s_num = Number($(selector + '#is_num').val())
+            id = Number(id) + s_num
             userdata[id].name = $(selector + '#name').val()
             userdata[id].status = $(selector + '#status').val()
             userdata[id].followers = $(selector + '#followers').val()
